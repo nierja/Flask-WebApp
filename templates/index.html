@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Service</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sorting Service</h1>
+        <form method="POST" action="/">
+            <label for="method">Method:</label>
+            <select id="method" name="method">
+                <option value="SEC">Sequential</option>
+                <option value="PAR">Parallel</option>
+            </select>
+
+            <label for="seed">Seed:</label>
+            <input type="number" id="seed" name="seed" required>
+
+            <label for="size">Vector Size:</label>
+            <input type="number" id="size" name="size" required>
+
+            <label for="n_repetitions">Number of Repetitions:</label>
+            <input type="number" id="n_repetitions" name="n_repetitions" required>
+
+            <label for="n_threads">Number of Threads:</label>
+            <input type="number" id="n_threads" name="n_threads" required>
+
+            <button type="submit">Sort</button>
+        </form>
+
+        {% if result is not none %}
+            <h2>Average Sorting Time: {{ result }} seconds</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
