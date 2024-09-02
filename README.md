@@ -43,7 +43,7 @@ This project contains a Flask-based GUI web service designed to perform sorting 
 You can clone the repository and build the Docker image:
 
 ```bash
-git git@github.com:nierja/Flask-WebApp.git
+git clone git@github.com:nierja/Flask-WebApp.git
 cd Flask-WebApp
 docker build -t execution-cluster .
 ```
@@ -56,7 +56,7 @@ To run the container and start the service:
 docker run -p 5000:5000 execution-cluster
 ```
 
-## Installation and run
+## Accessing the GUI interface
 
 After you run either the Docker container or `src/iface_cluster.py` itself, the program displays the localhost addres where you can find the running app.
 
