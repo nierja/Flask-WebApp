@@ -6,14 +6,29 @@
 
 ## Overview
 
-This project contains a Flask-based web service designed to perform sorting on randomly generated vectors using either sequential or parallel methods. The service allows you to specify parameters such as the random seed, vector size, number of repetitions, and number of threads for parallel processing. The average execution time for the sorting operation is returned as a result.
+This project contains a Flask-based GUI web service designed to perform sorting on randomly generated vectors using either sequential or parallel methods.
+
+
+<div style="text-align: center;">
+    <img src="img/flask_result.png" alt="resulting flask web app" width="400"/>
+</div>
 
 ## Features
 
-- **Sequential and Parallel Sorting**: Choose between sequential (`SEC`) and parallel (`PAR`) sorting methods.
+- **Sequential and Parallel Sorting**: Choose between sequential and parallel sorting methods (implemented using the `multiprocessing` module).
 - **Execution Time Measurement**: The service measures and returns the average execution time for sorting operations.
 - **Customizable Parameters**: Specify the random seed, vector size, number of repetitions, and number of threads for parallel processing.
 - **Web Interface**: Render and use a modern-looking web interface to set computational parameters and then to display the result.
+
+## Programming techniques
+
+- Easily **deployable via Docker**
+- Use of **decorators** for **benchmarking**
+- **Paralelized computation** (classic thread pool) via the `multiprocessing` module
+- Use of **numpy** and **seeded random number generator** for generating inputs
+- App bult via **Flask** library and contains an interactive web **GUI interface**
+- Automatic code **linting** with Github **CI workflow**
+- IMHO, just 70 lines of code (`src/iface_cluster.py`) beatifuly showcase the **powerful and concise expressibility** of Python
 
 ## Installation
 
@@ -28,8 +43,8 @@ This project contains a Flask-based web service designed to perform sorting on r
 You can clone the repository and build the Docker image:
 
 ```bash
-git clone https://github.com/yourusername/execution-cluster.git
-cd execution-cluster
+git git@github.com:nierja/Flask-WebApp.git
+cd Flask-WebApp
 docker build -t execution-cluster .
 ```
 
@@ -55,5 +70,3 @@ WARNING: This is a development server. Do not use it in a production deployment.
  * Running on http://172.24.211.30:5000
 Press CTRL+C to quit
 ```
-
-<img src="img/flask_result.png" alt="resulting flask web app" width="400"/>
